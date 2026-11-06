@@ -12,3 +12,7 @@ Normal staff sign in from office range (192.0.2.0/24) or the VPN
 | 14:09 | 203.0.113.77 | External | c.patel | Failed |
 | 14:13 | 203.0.113.77 | External | d.nguyen | Failed |
 | 14:52 | 203.0.113.77 | External | k.yoon | Successful |
+
+
+| Time | Source IP | type | Account | Status |
+|:-----|:---------:|:----:|:-------:|-------:|
