@@ -24,7 +24,9 @@
 ## Deliverable 1: Verdict
 
 a.	10.20.20.37 looks infected and suspicious because of number of sequential TXT queries.
+
 b.	That is also an example of DNS-based payload retrieval/command-and-control (C2).
+
 c.	Again, from domain information cdn-syn.example.net is not in its approved software list which 10.20.4.37 responded NO and has 0% NXDOMAIN from full-day summary.
 
 ## Deliverable 2: The decoy
@@ -33,8 +35,10 @@ a.	10.20.4.52 is a benign in this query. It is legitimate and exists in its appr
 
 ## Deliverable 3: Containment
 
-a.	Extract the exact queried name and check their registration age, reputation, and passive DNS history and whether the TXT answer contain encoded/binary-looking data, base64/hex strings, or command-like text. 
-b.	Identify the user that generated the TXT query. 
+a.	Extract the exact queried name and check their registration age, reputation, and passive DNS history and whether the TXT answer contain encoded/binary-looking data, base64/hex strings, or command-like text.
+
+b.	Identify the user that generated the TXT query.
+
 c.	Check the new IP, 10.20.4.15 if it resolves to 198.51.100.150 (vendor monitoring agent).
 
 ## Deliverable 4: Detection idea
