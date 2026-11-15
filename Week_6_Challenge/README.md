@@ -23,7 +23,7 @@
 
 ## Deliverable 1: Verdict
 
-a.	10.20.20.37 looks infected and suspicious because of number of sequential TXT queries.
+a.	10.20.20.37 is likely infected and suspicious because of number of sequential TXT queries.
 
 b.	That is also an example of DNS-based payload retrieval/command-and-control (C2).
 
