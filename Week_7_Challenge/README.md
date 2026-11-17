@@ -1,6 +1,7 @@
 # Week 7 Challenge - Reading web server logs to separate noise from a real attack, and proving whether it attacke suceeded.
 
-## Ticket - Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted.
+## Ticket
+- Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted.
 
 ### What we know => Normal response byte is about 1 KB
 ### Aproved activeties => 192.0.2.10 scanning system and 10.0.0.15 load balancer health checker.
