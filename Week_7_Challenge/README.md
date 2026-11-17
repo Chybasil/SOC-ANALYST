@@ -56,7 +56,7 @@ Time Source IP Session user Request Status Bytes Client
 
 
 ### Did it work?
-Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a python code as patient appointment which gave access to where patient passwords are stored (/etc/passwd) and running script on the server which granted access login.
+- Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a python code as patient appointment which gave access to where patient passwords are stored (/etc/passwd) and running script on the server which granted access login.
 
 ### Quoted line of action:
 -	04:47:02 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑝𝑜𝑟𝑡𝑎𝑙/𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑠/𝑢𝑝𝑙𝑜𝑎𝑑 200 2,310 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
