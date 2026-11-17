@@ -3,10 +3,13 @@
 ## Ticket
 - Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted.
 
-### What we know => Normal response byte is about 1 KB
-### Aproved activeties => 192.0.2.10 scanning system and 10.0.0.15 load balancer health checker.
+### What we know
+- Normal response byte is about 1 KB
+  
+### Aproved activeties
+- 192.0.2.10 scanning system and 10.0.0.15 load balancer health checker.
 
-# NB; Vendors, domains, and IP addresses are fictional and used for training only.
+## NB; Vendors, domains, and IP addresses are fictional and used for training only.
 
 ### Web server log
 ```
