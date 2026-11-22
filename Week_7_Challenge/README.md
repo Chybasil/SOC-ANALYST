@@ -48,7 +48,13 @@ Time Source IP Session user Request Status Bytes Client
 | 192.0.2.160 | 192.0.2.10 | 203.0.113.50, 203.0.113.171|
 
 ### Evidence: 
->-	An export appointment file from admin17 clinic staff => 09:30:12 192.0.2.160 clinic.admin17 GET /api/appointments/export?clinic=17 200 214,332 Mozilla/5.0 (Macintosh)
+-	An export appointment file from admin17 clinic staff => 09:30:12 192.0.2.160 clinic.admin17 GET /api/appointments/export?clinic=17 200 214,332 Mozilla/5.0 (Macintosh)
+
+[]
+{}
+()
+<>
+@m
 
 -	A noise created by by weekly vulnerability scan => 03:02:14 192.0.2.10 - GET /uploads/test.php 404 196 NW-VulnScan/2.1
 
