@@ -16,7 +16,7 @@
 
 ### 𝐓𝐡𝐞 𝟐𝟒 𝐚𝐥𝐞𝐫𝐭𝐬
 
-'''
+
 | # | Day, time | Source host | Role | Destination | MB sent | Context from the logs |
 |---|---|---|---|---|---|---|
 | 1 | Mon 16 02:12 | NW-BKP01 | Backup server | `backup.vaultly.example` | 39,800 | Process: vaultly-agent, scheduled job |
@@ -43,11 +43,11 @@
 | 22 | Sat 21 02:12 | NW-BKP01 | Backup server | `backup.vaultly.example` | 41,900 | Process: vaultly-agent, scheduled job |
 | 23 | Sat 21 04:20 | NW-RPT-01 | Reporting server | `198.51.100.77` | 1,420 | Process unknown (no EDR agent), no signed-in user |
 | 24 | Sun 22 02:12 | NW-BKP01 | Backup server | `backup.vaultly.example` | 38,700 | Process: vaultly-agent, scheduled job |
-'''
+
 
 ## Deliverable 1 - Grouping:
 
-'''
+
 | S/N | Source Host | Destination | Count | Benign | Investigate | Evidence |
 |---|---|---|---|---|---|---|
 | 1 | NW-BKP01 | backup.vaultly.example | 6 | No | Yes | Sent 39,800 + 40,450 MB of files between Mon 16 02:12 and Tue 17 02:12 which should be sent by NW-RPT-01 and more than 500 MB per hour |
@@ -59,7 +59,7 @@
 |7 | NW-LT-0447 | drive.freefilebox.example | 2 | Yes | Yes | Sent 2,140 MB to non-approved destination in range 500 MB per hour |
 | 8 | NW-APP-03 | sftp.clinicgroup-a.example | 1 | Yes | No | Sent 640 MB over the week which in 500 MB per hour |
 | 9 | NW-RPT-01 | 198.51.100.77 | 1 | Yes | Yes | Northwind has no contract with it |
-'''
+
 
 ## Deliverable 2 - Investigation:
 
