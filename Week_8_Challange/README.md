@@ -1,11 +1,13 @@
 # SOC - Grouping noisy alerts and tuning a detection rules
 
-## NB: All samples used are fictional
-## Ticket:  A large file upload rule fired 24 times last week and team started ignoring it and can be dangerous. Fixing the rule so that it is useful again
+## NB: 
+- All samples used are fictional
+## Ticket:  
+- A large file upload rule fired 24 times last week and team started ignoring it and can be dangerous. Fixing the rule so that it is useful again
 
 ## Knowledge base:
 
-𝐓𝐨𝐝𝐚𝐲'𝐬 𝐝𝐚𝐭𝐞: 23 November 2026. The alerts cover Monday 16 to Sunday 22 November (times in GMT).
+- 𝐓𝐨𝐝𝐚𝐲'𝐬 𝐝𝐚𝐭𝐞: 23 November 2026. The alerts cover Monday 16 to Sunday 22 November (times in GMT).
 - 𝐓𝐡𝐞 𝐫𝐮𝐥𝐞: `LARGE-UPLOAD-01`: alert when any internal host sends 𝐦𝐨𝐫𝐞 𝐭𝐡𝐚𝐧 𝟓𝟎𝟎 𝐌𝐁 to an external destination within one hour.
 - 𝐀𝐩𝐩𝐫𝐨𝐯𝐞𝐝 𝐝𝐞𝐬𝐭𝐢𝐧𝐚𝐭𝐢𝐨𝐧𝐬: `backup.vaultly.example` (backup), `registry.buildhub.example` (software build images), `video.clipshare.example` (webinar videos, Marketing only), `demo.webconf.example` (customer demo recordings, Sales), `payroll.paywise.example` (payroll), `git.codehost.example` (source code), and `sftp.clinicgroup-a.example` (a weekly billing export every Friday at 06:00, change ticket CHG-4388).
 - `drive.freefilebox.example` is a personal file-sharing site. It is 𝐧𝐨𝐭 approved.
