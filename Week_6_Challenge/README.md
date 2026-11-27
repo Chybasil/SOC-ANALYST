@@ -1,4 +1,4 @@
-# Week 6 Challenge – Analysing DNS logs to spot command-and-control (C2) activity
+# SOC – Analysing DNS logs to spot command-and-control (C2) activity
 
 ## NB: This is a fictional case study based on provided documents, not a real vendor audit.
 
