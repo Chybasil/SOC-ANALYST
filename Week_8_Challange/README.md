@@ -1,9 +1,7 @@
 # SOC - Grouping noisy alerts and tuning a detection rules
 
-## NB: 
-- All samples used are fictional
-## Ticket:  
-- A large file upload rule fired 24 times last week and team started ignoring it and can be dangerous. Fixing the rule so that it is useful again
+## NB: - All samples used are fictional
+## Ticket:  - A large file upload rule fired 24 times last week and team started ignoring it and can be dangerous. Fixing the rule so that it is useful again
 
 ## Knowledge base:
 
