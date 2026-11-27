@@ -1,4 +1,4 @@
-# Designing a detection rule and testing it against real-lookin noise
+# SOC -Designing a detection rule and testing it against real-lookin noise
 
 ## Allowed set of IP range/VPN usage
 Normal staff sign in from office range (192.0.2.0/24) or the VPN
