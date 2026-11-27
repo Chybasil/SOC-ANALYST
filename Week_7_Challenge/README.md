@@ -1,4 +1,4 @@
-# Week 7 Challenge - Reading web server logs to separate noise from a real attack, and proving whether it succeeded
+# SOC - Reading web server logs to separate noise from a real attack, and proving whether it succeeded
 
 ## Ticket
 - Web server, patient portal had a 'busy night' and a few odd requests but nothing alerted
