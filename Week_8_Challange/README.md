@@ -65,9 +65,11 @@
 
 - From deliverable 1, NW-BKP01 should be investigated and configured to pass through NW-RPT-01 because NW-RPT-01 is an internal reporting server and over the last 90 days it has sent less than 5 MB a day to the internet, only to the operating-system update server and has 𝐧𝐨 𝐄𝐃𝐑 𝐚𝐠𝐞𝐧𝐭
 - Again, NW-LT-0447 and NW-RPT-01 data sent to drive.freefilebox.example and 198.51.100.77 respectively should be investigated because of non-compliance.
+  
 
 ## Deliverable 3 - Setting New Rules:
 The new should include normal 500 MB per hour and less than 1GB no alert. This will cover the noise that occurred at number 2, 3, 4, 5, 6, and 8 in deliverable 1 table as well alert for number 1 for more than 500 MB sent and non-compliance destinations.
+
 
 ## Deliverable 4 - The Blind Spot:
 The new rule will alert when more than 500 MB are sent per hour and create noise when it is from different sources over week but setting controls over the week will mitigate any noise that may occur.
